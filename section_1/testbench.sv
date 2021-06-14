@@ -1,6 +1,6 @@
 `timescale 1ns/100ps
 
-module testbench_lab2 ();
+module testbench ();
 
     logic a, b;
     logic y1s, y2s, y3s;
@@ -43,16 +43,16 @@ module testbench_lab2 ();
         #10;
         a = 1;
         #10;
-     //   $finish();
+        $finish();
     end
 
     initial begin
-        $display("TIME | AB | y1s y2s y3s | y1d y2d y3d | y1b y2b y3b");
-        $display("---------------------------------------------------");
+        $display("TIME | A B | y1s y2s y3s | y1d y2d y3d | y1b y2b y3b");
+        $display("-----------------------------------------------------");
         $monitor("  %2d | %b %b |   %b   %b   %b |   %b   %b   %b |   %b   %b   %b",
           	  $time, a, b, y1s, y2s, y3s, y1d, y2d, y3d, y1b, y2b, y3b);
 
-        $dumpfile("lab2.vcd");
+        $dumpfile("lab2_file.vcd");
         $dumpvars(1, a, b, y1s, y2s, y3s, y1d, y2d, y3d, y1b, y2b, y3b);
         $dumpflush;
     end
